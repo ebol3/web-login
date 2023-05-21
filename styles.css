@@ -1,0 +1,221 @@
+:root {
+    --color-dark: #361999;
+    --color-light: #78fff1;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(
+        to top right, 
+        var(--color-dark), 
+        var(--color-light)
+        );
+    display: flex;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+form {
+    background: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.35) 
+    );
+    backdrop-filter: blur(8px);
+    max-width: 300px;
+    max-height: 100%;
+    padding: 36px 24px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form__input-container{
+    position: relative;
+    margin-bottom: 32px;
+}
+
+input, button{
+    background: linear-gradient(
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.25) 
+    );
+    border: none;
+    opacity: 1 ;
+    border-radius: 18px;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.3);
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
+    font-size: 24px;
+    transition: box-shadow 0.3s, outline 0.3s;
+}
+
+input{
+    width: 100%;
+}
+
+label{
+    color:rgb(255, 255, 255);
+    cursor: text;
+    font-style: italic  ;
+    left: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s, opacity 0.3s;
+    opacity: 0.4;
+}
+
+input:focus + label, 
+input:not(:placeholder-shown) + label{
+    left: 200px;
+    opacity: 0;
+}
+
+input:hover,
+button:hover{
+    box-shadow: 0px 8px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+input:focus,
+button:focus{
+    outline: solid 3px rgba(255, 255, 255, 0.8);
+}
+
+button{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after{
+    background: rgba(255, 255, 255, 0.5);
+    content: "";
+    display: block;
+    height: 100px;
+    left: -70px;
+    position: absolute;
+    top: -50%;
+    width: 50px;
+    transform: skewX(-15deg);
+    transition: left 0.15s linear;
+}
+
+button:hover:after{
+    left: 110%;
+}
+
+.form__icon{
+    border: solid 3px rgba(255, 255, 255, 0.6);
+    background: 0px 8px 24px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    height: 72px;
+    width: 72px;
+    overflow: hidden;
+    position: relative;
+}
+.form__icon:before{
+    background:  rgba(255, 255, 255, 0.6);
+    content: "";
+    height: 24px;
+    width: 64px;
+    position: absolute;
+    display: block;
+    border-radius:50%;
+    bottom: 0;
+}
+
+.form__icon:after{
+    background:  rgba(255, 255, 255, 0.6);
+    content: " ";
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    display: block;
+    border-radius:50%;
+    bottom: 45%;
+}
+
+.form__spacer{
+    background: rgba(255, 255, 255, 0.55);
+    height: 2px;
+    width: 80%;
+    height: 2px;
+    margin: 0 auto 32px;
+    border-radius: 100%;
+}  
+
+.bg{
+    height: 100%;
+    left: 10vw;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+}
+
+.bg__dot{
+    background: linear-gradient(
+        to right,
+        var(--color-light),
+        rgba(255, 255, 255, 0.1)
+    );
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+}
+
+.bg__dot:nth-child(1){
+    animation: move1 10s linear infinite;
+    height: 50vh;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50vh;
+}
+
+.bg__dot:nth-child(2){
+    animation: move2 10s linear infinite;
+    background: linear-gradient(
+        to left,
+        var(--color-light),
+        rgba(255, 255, 255, 0.1)
+        );
+    height: 20vh;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 20vh;
+}
+
+@keyframes move1 {
+    from {
+        transform: translateY(-50vh);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes move2 {
+    from {
+        transform: translateY(50vh);
+    }
+    to {
+        transform: translateY(-80vh);
+    }
+}
